@@ -43,7 +43,7 @@ public class FileContentResource
 	}
 
 	@PostMapping(consumes = {MediaType.APPLICATION_OCTET_STREAM_VALUE})
-	public MessageModel createFile(@PathVariable("id") String id, @RequestBody byte[] entity) throws Exception
+	public MessageModel createFile(@PathVariable("id") String id, @RequestBody byte[] entity)
 	{
 		return null;
 	}
@@ -55,7 +55,7 @@ public class FileContentResource
 	}
 
 	@PutMapping(consumes = {MediaType.APPLICATION_OCTET_STREAM_VALUE})
-	public MessageModel updateFile(@PathVariable("id") String id, RequestEntity<InputStream> entity) throws Exception
+	public MessageModel updateFile(@PathVariable("id") String id, RequestEntity<InputStream> entity)
 	{
 		return null;
 	}
