@@ -1,4 +1,4 @@
-package com.ekipa.domain;
+package com.ekipa.model;
 
 import java.util.Set;
 
@@ -6,6 +6,11 @@ public class Children
 {
 	private Set<String> files;
 	private Set<String> directories;
+
+	public Children(Set<String> files, Set<String> directories) {
+		this.files = files;
+		this.directories = directories;
+	}
 
 	public Set<String> getFiles()
 	{

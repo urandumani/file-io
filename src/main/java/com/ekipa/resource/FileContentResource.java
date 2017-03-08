@@ -1,6 +1,6 @@
 package com.ekipa.resource;
 
-import com.ekipa.exception.MessageModel;
+import com.ekipa.model.MessageModel;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
