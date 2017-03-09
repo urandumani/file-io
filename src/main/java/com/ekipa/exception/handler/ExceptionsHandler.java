@@ -1,7 +1,6 @@
 package com.ekipa.exception.handler;
 
 import java.io.FileNotFoundException;
-import java.nio.file.FileAlreadyExistsException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.ekipa.exception.ContentEmptyException;
 import com.ekipa.exception.ContentNotAvailableException;
+import com.ekipa.exception.FileAlreadyExistsException;
 import com.ekipa.exception.FileAlreadyInUseException;
 import com.ekipa.exception.PathNotAFileException;
 import com.ekipa.exception.PermissionException;

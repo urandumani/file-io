@@ -1,11 +1,11 @@
 package com.ekipa.service;
 
 import java.io.FileNotFoundException;
-import java.nio.file.FileAlreadyExistsException;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ekipa.exception.ContentEmptyException;
+import com.ekipa.exception.FileAlreadyExistsException;
 import com.ekipa.exception.InternalServerErrorException;
 import com.ekipa.model.FileModel;
 

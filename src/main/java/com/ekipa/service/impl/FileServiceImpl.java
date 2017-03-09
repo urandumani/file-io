@@ -2,7 +2,6 @@ package com.ekipa.service.impl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ekipa.exception.ContentEmptyException;
 import com.ekipa.exception.ContentNotAvailableException;
+import com.ekipa.exception.FileAlreadyExistsException;
 import com.ekipa.exception.InternalServerErrorException;
 import com.ekipa.exception.PathNotAFileException;
 import com.ekipa.exception.PermissionException;
