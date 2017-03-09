@@ -5,7 +5,8 @@ import com.ekipa.constant.Permission;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 
-public class File {
+public class FileModel {
+
 	private String id;
 	private String name;
 	private long size;
@@ -61,16 +62,16 @@ public class File {
 		this.permission = permission;
 	}
 
-	public static File createFile(String id, Path path, BasicFileAttributes attributes) {
-		File file = new File();
-		file.setName(path.getFileName().toString());
-		file.setId(id);
-		file.setLastmodified(attributes.lastModifiedTime().toMillis());
-		file.setSize(attributes.size());
+	public static FileModel createFile(String id, Path path, BasicFileAttributes attributes) {
+		FileModel fileModel = new FileModel();
+		fileModel.setName(path.getFileName().toString());
+		fileModel.setId(id);
+		fileModel.setLastmodified(attributes.lastModifiedTime().toMillis());
+		fileModel.setSize(attributes.size());
 		if (path.getParent() != null) {
-			file.setParent(path.getParent().getFileName().toString());
+			fileModel.setParent(path.getParent().getFileName().toString());
 		}
-		file.setPermission(Permission.getPermission(path));
-		return file;
+		fileModel.setPermission(Permission.getPermission(path));
+		return fileModel;
 	}
 }
