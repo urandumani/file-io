@@ -1,11 +1,5 @@
 package com.ekipa.util;
 
-import com.ekipa.exception.FileAlreadyInUseException;
-import com.ekipa.exception.InternalServerErrorException;
-import com.ekipa.service.FileService;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -21,10 +15,16 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+import com.ekipa.exception.FileAlreadyInUseException;
+import com.ekipa.exception.InternalServerErrorException;
+
 @Service
 public class FileUtil {
 
-    private static final Logger logger = Logger.getLogger(FileService.class);
+    private static final Logger logger = Logger.getLogger(FileUtil.class);
 
     public Path getPath(String id) {
         return Paths.get(id);
@@ -48,11 +48,11 @@ public class FileUtil {
     }
 
     public boolean fileExists(Path path) {
-        return Files.exists(path, new LinkOption[]{LinkOption.NOFOLLOW_LINKS});
+        return Files.exists(path, new LinkOption[] { LinkOption.NOFOLLOW_LINKS });
     }
 
     public boolean fileNotExists(Path path) {
-        return Files.notExists(path, new LinkOption[]{LinkOption.NOFOLLOW_LINKS});
+        return Files.notExists(path, new LinkOption[] { LinkOption.NOFOLLOW_LINKS });
     }
 
     public void createDirectories(Path path) throws InternalServerErrorException {

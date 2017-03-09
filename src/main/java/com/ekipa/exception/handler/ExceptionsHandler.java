@@ -1,17 +1,19 @@
 package com.ekipa.exception.handler;
 
-import com.ekipa.exception.ContentNotAvailableException;
-import com.ekipa.exception.FileAlreadyInUseException;
-import com.ekipa.exception.PathNotAFileException;
-import com.ekipa.exception.PermissionException;
-import com.ekipa.model.MessageModel;
+import java.io.FileNotFoundException;
+import java.nio.file.FileAlreadyExistsException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.io.FileNotFoundException;
-import java.nio.file.FileAlreadyExistsException;
+import com.ekipa.exception.ContentEmptyException;
+import com.ekipa.exception.ContentNotAvailableException;
+import com.ekipa.exception.FileAlreadyInUseException;
+import com.ekipa.exception.PathNotAFileException;
+import com.ekipa.exception.PermissionException;
+import com.ekipa.model.MessageModel;
 
 @RestControllerAdvice
 public class ExceptionsHandler {
@@ -55,6 +57,12 @@ public class ExceptionsHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public MessageModel generic(Exception e) {
+        return MessageModel.message(e.getMessage());
+    }
+
+    @ExceptionHandler(ContentEmptyException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public MessageModel contentEmpty(ContentEmptyException e) {
         return MessageModel.message(e.getMessage());
     }
 }
