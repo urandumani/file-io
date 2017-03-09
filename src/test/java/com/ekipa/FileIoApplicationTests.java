@@ -11,8 +11,14 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,4 +37,19 @@ public class FileIoApplicationTests {
 		String a = EntityUtils.toString(response.getEntity());
 	}
 
+	@Test
+	public void test() throws Exception {
+		Path path = Paths.get("abc/bca/tra/mma/test.txt");
+		Files.createDirectories(path.getParent());
+		FileChannel channel = FileChannel.open(path, StandardOpenOption.WRITE);
+		FileLock lock = channel.tryLock();
+		channel.write(ByteBuffer.wrap(Files.readAllBytes(Paths.get(".gitignore"))));
+		lock.release();
+	}
+
+	@Test
+	public void a() throws Exception {
+		Path path = Paths.get("abc");
+		Files.createDirectories(path);
+	}
 }
