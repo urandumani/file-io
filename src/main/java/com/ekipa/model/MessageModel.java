@@ -1,8 +1,5 @@
-package com.ekipa.exception;
+package com.ekipa.model;
 
-/**
- * Created by Sokol.Decani on 08/03/2017.
- */
 public class MessageModel
 {
 	private String message;
